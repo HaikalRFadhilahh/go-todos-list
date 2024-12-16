@@ -5,7 +5,7 @@ import (
 	"log"
 
 	"github.com/HaikalRFadhilahh/go-todos-list/internal/db"
-	"github.com/HaikalRFadhilahh/go-todos-list/internal/models"
+	"github.com/HaikalRFadhilahh/go-todos-list/internal/model"
 	"github.com/joho/godotenv"
 )
 
@@ -14,7 +14,7 @@ func main() {
 
 	db := db.InitDB()
 
-	if err := db.AutoMigrate(models.Users{}, models.Tasks{}); err != nil {
+	if err := db.AutoMigrate(model.Users{}, model.Tasks{}); err != nil {
 		log.Fatalln("Migration Error, Has Error :", err.Error())
 	}
 
