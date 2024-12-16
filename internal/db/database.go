@@ -25,5 +25,7 @@ func InitDB() *gorm.DB {
 		log.Fatalln("Database Connection Error, Error : ", err.Error())
 	}
 
+	fmt.Println("Database Success Connected!")
+
 	return db
 }
