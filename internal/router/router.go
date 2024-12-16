@@ -4,12 +4,22 @@ import (
 	"encoding/json"
 	"net/http"
 
+	"github.com/HaikalRFadhilahh/go-todos-list/internal/db"
+	"github.com/HaikalRFadhilahh/go-todos-list/internal/di"
 	"github.com/HaikalRFadhilahh/go-todos-list/internal/handler"
 	"github.com/HaikalRFadhilahh/go-todos-list/internal/middleware"
 	"github.com/gorilla/mux"
 )
 
 func Router() *mux.Router {
+	// Database Connection
+	db := db.InitDB()
+
+	// Dependency Injection Struct
+	_ = di.InitDI(db)
+
+	// Controller
+
 	// Init Router Routing
 	r := mux.NewRouter()
 
